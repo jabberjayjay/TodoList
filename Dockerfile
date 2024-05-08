@@ -3,7 +3,8 @@ FROM ruby:3.0.0
 RUN apt-get update -yqq
 RUN apt-get install -yqq --no-install-recommends nodejs
 
-COPY . /usr/src/appARG SECRET_KEY_BASE
+COPY . /usr/src/app
+ARG SECRET_KEY_BASE
 
 WORKDIR /usr/src/app
 ENV RAILS_ENV=productionENV SECRET_KEY_BASE=${SECRET_KEY_BASE}
